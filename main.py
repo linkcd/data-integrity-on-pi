@@ -28,7 +28,7 @@ while True:
 
     temp = str(round(hat.get_temperature(), 2))
     print("")
-    print("#%d:" %count, "Temperature:%s" %t)
+    print("#%d:" %count, "Temperature:%s" %temp)
 
     hat.show_message("Temp:%s" % temp, scroll_speed=0.1)
 
