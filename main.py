@@ -3,6 +3,8 @@ import threading
 from helpers.dataintegrityhelper import *
 from helpers.sensehathelper import *
 
+#variables
+count = 0
 animation_refresh_intervals = 0.1 #smaller is faster
 
 #setup sense hat
@@ -21,11 +23,13 @@ def display_loading_while_waiting_for_done(e, t, hat):
             display_as_attaching_to_tangle(hat, step)
             step += 1
 
-while True: 
-        
-    temp = hat.get_temperature()
-    print("Temperature: %s C" % temp)
-    hat.show_message("Temperature: %s C" % temp, scroll_speed=0.1)
+while True:
+          
+    temp = str(round(hat.get_temperature(), 2)))
+    print("")
+    print("#%d:" %count, "Temperature:%s" %t)
+
+    hat.show_message("Temp:%s" % temp, scroll_speed=0.1)
 
     payload = get_payload(temp)
     
@@ -38,5 +42,7 @@ while True:
     print(r)
     attachedDoneEvent.set()
 
-    time.sleep(1)
- 
+    time.sleep(3)
+    
+    global count
+    count += 1

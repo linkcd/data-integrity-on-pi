@@ -35,7 +35,7 @@ payload = {
 def send_data_integrity_info():
     headers = {
         'Content-Type': 'application/json',
-        'seed' : seed
+        'seed' : device_seed
     }
     payload = json_data
     response = requests.post(datalineage_webservice_url, headers=headers, data=payload)
