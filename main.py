@@ -39,11 +39,12 @@ while True:
     showAttachingThread = threading.Thread(name='loading_screen_thread', target=display_loading_while_waiting_for_done, args=(attachedDoneEvent, animation_refresh_intervals, hat))
     showAttachingThread.start()
 
+    print("Submitting data integrity information to tangle...")
     r = send_data_integrity_info(payload)
-    print("Data integrity information is attached to tangle successfully!")
     print(r)
+    print("Completed!")
     attachedDoneEvent.set()
 
-    time.sleep(2)
+    time.sleep(3)
 
     count += 1
