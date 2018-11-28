@@ -23,9 +23,10 @@ def display_loading_while_waiting_for_done(e, t, hat):
             display_as_attaching_to_tangle(hat, step)
             step += 1
 
-while True:
-          
-    temp = str(round(hat.get_temperature(), 2)))
+while True:   
+    global count
+
+    temp = str(round(hat.get_temperature(), 2))
     print("")
     print("#%d:" %count, "Temperature:%s" %t)
 
@@ -39,10 +40,10 @@ while True:
     showAttachingThread.start()
 
     r = send_data_integrity_info(payload)
+    print("Data integrity information is attached to tangle successfully!")
     print(r)
     attachedDoneEvent.set()
 
-    time.sleep(3)
-    
-    global count
+    time.sleep(2)
+
     count += 1
