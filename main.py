@@ -42,7 +42,7 @@ while True:
     print("Submitting data integrity information to tangle...")
     r = send_data_integrity_info(payload)
     print(r)
-    print("Completed!")
+    print("Submitted successfully!")
     attachedDoneEvent.set()
 
     time.sleep(3)
