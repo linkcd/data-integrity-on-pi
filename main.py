@@ -3,6 +3,11 @@ import threading
 from helpers.dataintegrityhelper import *
 from helpers.sensehathelper import *
 
+#for printing color
+from colorama import init
+init()
+from colorama import Fore, Back, Style
+
 #variables
 count = 0
 animation_refresh_intervals = 0.1 #smaller is faster
@@ -18,7 +23,7 @@ def display_loading_while_waiting_for_done(e, t, hat):
     while not e.isSet():
         event_is_set = e.wait(t)
         if event_is_set:
-            display_as_attached_successfuly(hat)
+            display_as_attached_successfully(hat)
         else:
             display_as_attaching_to_tangle(hat, step)
             step += 1
@@ -28,7 +33,8 @@ while True:
 
     temp = str(round(hat.get_temperature(), 2))
     print("")
-    print("#%d:" %count, "Temperature:%s" %temp)
+    print("#" + str(count) + " - Temperature: %s" %temp)
+    #print("#%d:" %count, "Temperature:%s" %temp)
 
     hat.show_message("Temp:%s" % temp, scroll_speed=0.1)
 
@@ -39,10 +45,11 @@ while True:
     showAttachingThread = threading.Thread(name='loading_screen_thread', target=display_loading_while_waiting_for_done, args=(attachedDoneEvent, animation_refresh_intervals, hat))
     showAttachingThread.start()
 
-    print("Submitting data integrity information to tangle...")
+    print(Fore.GREEN + "Submitting data integrity information to distributed ledger (IOTA tangle)...")
     r = send_data_integrity_info(payload)
-    print(r)
-    print("Submitted successfully!")
+    print(Fore.WHITE + str(r))
+    print(Fore.GREEN + "Submitted successfully!")
+    print(Style.RESET_ALL)
     attachedDoneEvent.set()
 
     time.sleep(3)

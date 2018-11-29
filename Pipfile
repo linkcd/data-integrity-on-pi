@@ -9,6 +9,7 @@ pylint = "<2.0.0"
 [packages]
 objdict = "*"
 requests = "*"
+colorama = "*"
 
 [requires]
 python_version = "3.6"

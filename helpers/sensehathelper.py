@@ -70,6 +70,6 @@ def get_fade_in_static_locking(step): #step from 1 to 8
 def display_as_attaching_to_tangle(hat, step):
     hat.set_pixels(get_locking_current(step))
 
-def display_as_attached_successfuly(hat):
+def display_as_attached_successfully(hat):
     hat.set_pixels(locked)
  
