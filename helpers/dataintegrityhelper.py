@@ -17,7 +17,7 @@ def encrypt_string(hash_string):
 
 def get_payload(count, temperature):
     data = ObjDict()
-    data.dataPackageId = count
+    data.dataPackageId = str(count)
     data.timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     data.wayOfProof = encrypt_string(str(temperature))
     data.valueOfProof = "sha256(temperature)"
