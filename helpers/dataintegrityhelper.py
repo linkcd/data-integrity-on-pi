@@ -32,7 +32,9 @@ def send_data_integrity_info(payload):
         'Content-Type': 'application/json',
         'seed' : device_seed
     }
-    response = requests.post(datalineage_webservice_url, headers=headers, data=payload)
-    response.raise_for_status()
-
+    try:
+        response = requests.post(datalineage_webservice_url, headers=headers, data=payload)
+        response.raise_for_status()
+    except requests.exceptions.HTTPError as err:
+        print(error)
     return response.json() 
