@@ -38,7 +38,7 @@ while True:
 
     hat.show_message("Temp:%s" % temp, scroll_speed=0.1)
 
-    payload = get_payload(temp)
+    payload = get_payload(count, temp)
     
     #start attaching to tangle
     attachedDoneEvent = threading.Event()

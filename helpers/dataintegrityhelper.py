@@ -15,11 +15,14 @@ def encrypt_string(hash_string):
         hashlib.sha256(hash_string.encode()).hexdigest()
     return sha_signature
 
-def get_payload(temperature):
+def get_payload(count, temperature):
     data = ObjDict()
-    data.dataPackageId = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    data.dataPackageId = count
+    data.timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     data.wayOfProof = encrypt_string(str(temperature))
     data.valueOfProof = "sha256(temperature)"
+    data.sensorType = "sensehat on pi"
+    data.location = "Norway"
     data.inputs = []
     data.original_value_for_quick_check = temperature
     return data.dumps()
