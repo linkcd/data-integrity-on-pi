@@ -8,7 +8,7 @@ import hashlib
 datalineage_webservice_url = "https://datalineage-viewer.azurewebsites.net/api/publish"
 
 #Device variables
-device_seed = "YMWCOSQBLSRYNVAIJURFCVWVGMFCS9UTMQEZMUZKNG9HWOV9BLIXRPEUTOHTDRKWFJDJMYHDEJTBJXDJ"
+device_seed = "PLEASEPROVIDEYOUROWNSEEDHERE9"
 
 def encrypt_string(hash_string):
     sha_signature = \
@@ -32,9 +32,11 @@ def send_data_integrity_info(payload):
         'Content-Type': 'application/json',
         'seed' : device_seed
     }
+    result = ""
     try:
         response = requests.post(datalineage_webservice_url, headers=headers, data=payload)
         response.raise_for_status()
-    except requests.exceptions.HTTPError as err:
-        print(error)
-    return response.json() 
+        result = response.json() 
+    except requests.exceptions.RequestException as err:
+        result = str(err)
+    return result
