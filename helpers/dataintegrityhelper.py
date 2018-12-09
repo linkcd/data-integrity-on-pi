@@ -38,5 +38,5 @@ def send_data_integrity_info(payload):
         response.raise_for_status()
         result = response.json() 
     except requests.exceptions.RequestException as err:
-        result = str(err)
+        print str(err)
     return result

@@ -47,8 +47,11 @@ while True:
 
     print(Fore.GREEN + "Submitting data integrity information to distributed ledger (IOTA tangle)...")
     r = send_data_integrity_info(payload)
-    print(Fore.WHITE + str(r))
-    print(Fore.GREEN + "Submitted successfully!")
+    if r == "":
+        print(Fore.RED + "Failed...")
+    else:
+        print(Fore.WHITE + str(r))
+        print(Fore.GREEN + "Submitted successfully!")
     print(Style.RESET_ALL)
     attachedDoneEvent.set()
 
