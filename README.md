@@ -14,5 +14,17 @@ To browse the saved data integrity data, go to https://thetangle.org/mam/UZFQPIF
 ## Software
 - Python
 
+## Code structure 
+The main code is
+- ./helpers/dataintegrityhelper.py (calling veracity data lineage service)
+- ./helpers/sensehathelper.py (handling sense hat animation)
+- ./main.py 
 
+A simplified version is sample-app.py which can run without a sense hat (sending dummy data payload)
 
+## Important
+Replace seed value with your private seed. The seed belongs to the device, and is used as a private key of that device.
+```python
+#Device variables
+device_seed = "PLEASEPROVIDEYOUROWNSEEDHERE999"
+```
