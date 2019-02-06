@@ -13,6 +13,7 @@ To browse the saved data integrity data, go to https://thetangle.org/mam/UZFQPIF
 
 ## Software
 - Python
+- Pipenv
 
 ## Code structure 
 The main code is
