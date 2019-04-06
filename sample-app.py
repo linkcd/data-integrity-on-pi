@@ -7,7 +7,7 @@ from objdict import ObjDict
 datalineage_webservice_url = "https://datalineage-viewer.azurewebsites.net/api/publish"
 
 #Device variables
-device_seed = "PLEASEPROVIDEYOUROWNSEEDHERE999"
+device_seed = "<YOUR_SEED_GOES_HERE>"
 
 #sample payload
 data = ObjDict()

@@ -1,4 +1,9 @@
 [[source]]
+url = "https://www.piwheels.org/simple"
+verify_ssl = true
+name = "piwheels"
+
+[[source]]
 name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
@@ -10,6 +15,8 @@ pylint = "<2.0.0"
 objdict = "*"
 requests = "*"
 colorama = "*"
+sense-hat = "*"
+rtimulib = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.5.3"
