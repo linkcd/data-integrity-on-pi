@@ -1,6 +1,6 @@
 # Data Integrity on IoT device 
 This demonstration shows how to ensure data integrity of an IoT data streaming from a typical IoT device such as raspberry pi. 
-This demonstration is using Veracity Data Lineage Service, and the data integrity information is stored in the live DTL environment - IOTA tangle mainnet.
+This demonstration is using [Veracity Data Lineage Service](https://github.com/veracity/data-lineage-service), and the data integrity information is stored in the live DTL environment - IOTA tangle mainnet.
 
 Demo:
 https://www.youtube.com/watch?v=uL5f_d1Np20
